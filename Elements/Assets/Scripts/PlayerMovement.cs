@@ -1,19 +1,18 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    //--------[Vars]------------------||
-
     public float moveSpeed;
     private Rigidbody2D rb;
     private Vector2 moveInput;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();        
+        rb = GetComponent<Rigidbody2D>();   
     }
 
-    // Update is called once per frame
     void Update()
     {
         moveInput.x = Input.GetAxisRaw("Horizontal");
@@ -24,6 +23,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        rb.linearVelocity = moveInput * moveSpeed;
+        rb.velocity = moveInput * moveSpeed;
     }
 }
